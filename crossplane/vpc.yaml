@@ -3,11 +3,11 @@ kind: VPC
 metadata:
   labels:
     provider: aws
-  name: argo-west-vpc
+  name: argo-vpc
 spec:
-  cidrBlock: 192.168.0.0/16
+  cidrBlock: 192.168.101.0/16
   enableDnsHostNames: true
   enableDnsSupport: true
   providerRef:
-    name: aws-provider-west
+    name: aws-provider
   reclaimPolicy: Delete
