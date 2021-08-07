@@ -8,9 +8,10 @@ spec:
     namespace: default
     server: ''
   source:
-    path: crossplane
+    path: crossplane/aws-network
     repoURL: 'https://github.com/rajeshsanthalingam/Docker.git'
     targetRevision: HEAD
   project: default
   syncPolicy:
-    automated: null
+    syncOptions:
+      - ApplyOutOfSyncOnly=true
