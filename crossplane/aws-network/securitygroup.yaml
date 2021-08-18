@@ -1,0 +1,14 @@
+apiVersion: network.aws.crossplane.io/v1alpha3
+kind: SecurityGroup
+metadata:
+  labels:
+    provider: aws
+  name: argo-eks-securitygroup
+spec:
+  description: security group for eks
+  groupName: argo-eks-sg
+  providerRef:
+    name: aws-provider
+  reclaimPolicy: Delete
+  vpcIdRef:
+    name: argo-vpc
