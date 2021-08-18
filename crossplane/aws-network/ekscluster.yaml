@@ -1,0 +1,28 @@
+apiVersion: compute.aws.crossplane.io/v1alpha3
+kind: EKSClusterClass
+metadata:
+  labels:
+    provider: aws
+  name: argo-eks
+specTemplate:
+  providerRef:
+    name: aws-provider
+  reclaimPolicy: Delete
+  roleARNRef:
+    name: argo-iamrole
+  securityGroupIdRefs:
+  - name: argo-eks-securitygroup
+  subnetIdRefs:
+  - name: argo-subnet1
+  - name: argo-subnet2
+  - name: argo-subnet3
+  vpcIdRef:
+    name: argo-vpc
+  workerNodes:
+    clusterControlPlaneSecurityGroupRef:
+      name: argo-eks-securitygroup
+    nodeAutoScalingGroupMaxSize: 1
+    nodeAutoScalingGroupMinSize: 1
+    nodeGroupName: argo-nodes
+    nodeInstanceType: t3.micro
+  writeConnectionSecretsToNamespace: crossplane-system
