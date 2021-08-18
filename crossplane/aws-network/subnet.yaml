@@ -13,3 +13,35 @@ spec:
   reclaimPolicy: Delete
   vpcIdRef:
     name: argo-vpc
+---
+apiVersion: network.aws.crossplane.io/v1alpha3
+kind: Subnet
+metadata:
+  labels:
+    provider: aws
+  name: argo-subnet2
+spec:
+  name: argo-subnet2
+  availabilityZone: ap-southeast-2b
+  cidrBlock: 30.0.128.0/18
+  providerRef:
+    name: aws-provider
+  reclaimPolicy: Delete
+  vpcIdRef:
+    name: argo-vpc
+---
+apiVersion: network.aws.crossplane.io/v1alpha3
+kind: Subnet
+metadata:
+  labels:
+    provider: aws
+  name: argo-subnet3
+spec:
+  name: argo-subnet3
+  availabilityZone: ap-southeast-2c
+  cidrBlock: 30.0.192.0/18
+  providerRef:
+    name: aws-provider
+  reclaimPolicy: Delete
+  vpcIdRef:
+    name: argo-vpc
