@@ -1,0 +1,12 @@
+apiVersion: network.aws.crossplane.io/v1alpha3
+kind: InternetGateway
+metadata:
+  labels:
+    provider: aws
+  name: argo-internetgateway
+spec:
+  providerRef:
+    name: aws-provider
+  reclaimPolicy: Delete
+  vpcIdRef:
+    name: argo-vpc
